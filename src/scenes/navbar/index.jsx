@@ -41,9 +41,9 @@ const Navbar = () => {
 	const primaryLight = theme.palette.primary.light
 	const alt = theme.palette.background.alt
 
-	// const fullName = `${user.firstName} ${user.lastName}`
-	const fullName = `Jamal Samadov`
-
+	const fullName = `${user.firstName} ${user.lastName}`
+	// const fullName = `Jamal Samadov`
+	console.log(useSelector((state) => state.user.firstName))
 
 
 
