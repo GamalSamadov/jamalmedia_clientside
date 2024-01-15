@@ -1,11 +1,7 @@
 import {
-	AttachFileOutlined,
 	DeleteOutlined,
 	EditOutlined,
-	GifBoxOutlined,
-	ImageOutlined,
-	MicOutlined,
-	MoreHorizOutlined,
+	ImageOutlined
 } from "@mui/icons-material"
 import {
 	Box,
@@ -14,8 +10,7 @@ import {
 	IconButton,
 	InputBase,
 	Typography,
-	useMediaQuery,
-	useTheme,
+	useTheme
 } from "@mui/material"
 import FlexBetween from "components/FlexBetween"
 import UserImage from "components/UserImage"
@@ -25,7 +20,7 @@ import Dropzone from "react-dropzone"
 import { useDispatch, useSelector } from "react-redux"
 import { setPosts } from "state"
   
-  const MyPostWidget = ({ picturePath }) => {
+const MyPostWidget = ({ picturePath }) => {
 	const dispatch = useDispatch();
 	const [isImage, setIsImage] = useState(false);
 	const [image, setImage] = useState(null);
@@ -33,7 +28,6 @@ import { setPosts } from "state"
 	const { palette } = useTheme();
 	const { _id } = useSelector((state) => state.user);
 	const token = useSelector((state) => state.token);
-	const isNonMobileScreens = useMediaQuery("(min-width: 1000px)");
 	const mediumMain = palette.neutral.mediumMain;
 	const medium = palette.neutral.medium;
   
@@ -131,29 +125,6 @@ import { setPosts } from "state"
 			</Typography>
 		  </FlexBetween>
   
-		  {isNonMobileScreens ? (
-			<>
-			  <FlexBetween gap="0.25rem">
-				<GifBoxOutlined sx={{ color: mediumMain }} />
-				<Typography color={mediumMain}>Clip</Typography>
-			  </FlexBetween>
-  
-			  <FlexBetween gap="0.25rem">
-				<AttachFileOutlined sx={{ color: mediumMain }} />
-				<Typography color={mediumMain}>Attachment</Typography>
-			  </FlexBetween>
-  
-			  <FlexBetween gap="0.25rem">
-				<MicOutlined sx={{ color: mediumMain }} />
-				<Typography color={mediumMain}>Audio</Typography>
-			  </FlexBetween>
-			</>
-		  ) : (
-			<FlexBetween gap="0.25rem">
-			  <MoreHorizOutlined sx={{ color: mediumMain }} />
-			</FlexBetween>
-		  )}
-  
 		  <Button
 			disabled={!post}
 			onClick={handlePost}
@@ -168,6 +139,6 @@ import { setPosts } from "state"
 		</FlexBetween>
 	  </WidgetWrapper>
 	);
-  };
+};
   
-  export default MyPostWidget;
+export default MyPostWidget;

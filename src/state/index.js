@@ -39,9 +39,16 @@ export const authSlice = createSlice({
       });
       state.posts = updatedPosts;
     },
+    setUpdatedPost: (state, action) => {
+      if (state.post) {
+        state.post = action.post
+      } else {
+        console.error("Post update failed!")
+      }
+    }
   },
 });
 
-export const { setMode, setLogin, setLogout, setFriends, setPosts, setPost } =
+export const { setMode, setLogin, setLogout, setFriends, setPosts, setPost, setUpdatedPost } =
   authSlice.actions;
 export default authSlice.reducer;

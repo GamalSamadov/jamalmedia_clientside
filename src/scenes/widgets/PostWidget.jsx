@@ -12,7 +12,7 @@ import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { setPost } from "state"
   
-  const PostWidget = ({
+const PostWidget = ({
 	postId,
 	postUserId,
 	name,
@@ -54,6 +54,7 @@ import { setPost } from "state"
 		  name={name}
 		  subtitle={location}
 		  userPicturePath={userPicturePath}
+		  postId={postId}
 		/>
 		<Typography color={main} sx={{ mt: "1rem" }}>
 		  {description}
@@ -107,6 +108,6 @@ import { setPost } from "state"
 		)}
 	  </WidgetWrapper>
 	);
-  };
+};
   
-  export default PostWidget;
+export default PostWidget;

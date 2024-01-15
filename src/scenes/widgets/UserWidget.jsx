@@ -10,17 +10,19 @@ import UserImage from "components/UserImage"
 import WidgetWrapper from "components/WidgetWrapper"
 import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
-import { useNavigate } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
   
-  const UserWidget = ({ userId, picturePath }) => {
+const UserWidget = ({ userId, picturePath }) => {
 	const [user, setUser] = useState(null);
 	const { palette } = useTheme();
 	const navigate = useNavigate();
 	const token = useSelector((state) => state.token);
+	const signedInUserId = useSelector((state) => state.user._id)
+	const loc = useLocation()
 	const dark = palette.neutral.dark;
 	const medium = palette.neutral.medium;
 	const main = palette.neutral.main;
-  
+	
 	const getUser = async () => {
 	  const response = await fetch(`http://localhost:3001/users/${userId}`, {
 		method: "GET",
@@ -75,7 +77,9 @@ import { useNavigate } from "react-router-dom"
 			  <Typography color={medium}>{friends.length} friends</Typography>
 			</Box>
 		  </FlexBetween>
-		  <ManageAccountsOutlined />
+
+		  {loc.pathname === `/profile/${signedInUserId}` && <ManageAccountsOutlined />}
+
 		</FlexBetween>
   
 		<Divider />
@@ -128,7 +132,10 @@ import { useNavigate } from "react-router-dom"
 				<Typography color={medium}>Social Network</Typography>
 			  </Box>
 			</FlexBetween>
-			<EditOutlined sx={{ color: main }} />
+
+			{loc.pathname === `/profile/${signedInUserId}` && 
+			<EditOutlined sx={{ color: main }} />}
+
 		  </FlexBetween>
   
 		  <FlexBetween gap="1rem">
@@ -141,11 +148,14 @@ import { useNavigate } from "react-router-dom"
 				<Typography color={medium}>Network Platform</Typography>
 			  </Box>
 			</FlexBetween>
-			<EditOutlined sx={{ color: main }} />
+
+			{loc.pathname === `/profile/${signedInUserId}` && 
+			<EditOutlined sx={{ color: main }} />}
+			
 		  </FlexBetween>
 		</Box>
 	  </WidgetWrapper>
 	);
-  };
+};
   
-  export default UserWidget;
+export default UserWidget;
