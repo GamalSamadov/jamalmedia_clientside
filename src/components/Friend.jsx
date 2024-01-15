@@ -75,6 +75,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath, postId }) => {
       }
     )
     handleCloseDeletePost()
+    successDeleteAlertShow()
   }
 
   const editPostSubmit = async (values, onSubmitProps) => {
@@ -131,6 +132,20 @@ const Friend = ({ friendId, name, subtitle, userPicturePath, postId }) => {
     }
 
     setOpenEditSuccessed(false);
+  };
+
+  const [openDeleteSuccessed, setOpenDeleteSuccessed] = React.useState(false);
+
+  const successDeleteAlertShow = () => {
+    setOpenDeleteSuccessed(true);
+  };
+
+  const handleCloseDeleteSuccessed = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpenDeleteSuccessed(false);
   };
 
   return (
@@ -271,9 +286,16 @@ const Friend = ({ friendId, name, subtitle, userPicturePath, postId }) => {
       </FlexBetween>
 
       {/* POST EDIT SUCCESS */}
-      <Snackbar open={openEditSuccessed} autoHideDuration={6000} onClose={handleCloseEditSuccessed}>
+      <Snackbar open={openEditSuccessed} autoHideDuration={4000} onClose={handleCloseEditSuccessed}>
       <Alert onClose={handleCloseEditSuccessed} severity="success" sx={{ width: '100%' }}>
         Post edited successfully!
+      </Alert>
+      </Snackbar>
+
+      {/* POST DELETE SUCCESS */}
+      <Snackbar open={openDeleteSuccessed} autoHideDuration={4000} onClose={handleCloseDeleteSuccessed}>
+      <Alert onClose={handleCloseDeleteSuccessed} severity="info" sx={{ width: '100%' }}>
+        Post deleted!
       </Alert>
       </Snackbar>
     </>
