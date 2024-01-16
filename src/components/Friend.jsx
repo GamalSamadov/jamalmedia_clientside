@@ -49,7 +49,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath, postId }) => {
 
   const patchFriend = async () => {
     const response = await fetch(
-      `http://localhost:3001/users/${_id}/${friendId}`,
+      `https://hsoub-api.onrender.com/users/${_id}/${friendId}`,
       {
         method: "PATCH",
         headers: {
@@ -64,7 +64,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath, postId }) => {
   
   const deletePostSubmit = async (e) => {
     await fetch(
-      `http://localhost:3001/posts/${postId}/`,
+      `https://hsoub-api.onrender.com/posts/${postId}/`,
       {
         method: "DELETE",
         headers: {
@@ -80,7 +80,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath, postId }) => {
 
   const editPostSubmit = async (values, onSubmitProps) => {
     const response = await fetch(
-      `http://localhost:3001/posts/${postId}`,
+      `https://hsoub-api.onrender.com/posts/${postId}`,
       {
         method: "PATCH",
         headers: {

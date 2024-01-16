@@ -1,10 +1,10 @@
-import { PersonAddOutlined, PersonRemoveOutlined } from "@mui/icons-material";
-import { Box, IconButton, Typography, useTheme } from "@mui/material";
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { setFriends } from "state";
-import FlexBetween from "./FlexBetween";
-import UserImage from "./UserImage";
+import { PersonAddOutlined, PersonRemoveOutlined } from "@mui/icons-material"
+import { Box, IconButton, Typography, useTheme } from "@mui/material"
+import { useDispatch, useSelector } from "react-redux"
+import { useNavigate } from "react-router-dom"
+import { setFriends } from "state"
+import FlexBetween from "./FlexBetween"
+import UserImage from "./UserImage"
 
 const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
   const dispatch = useDispatch();
@@ -23,7 +23,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
 
   const patchFriend = async () => {
     const response = await fetch(
-      `http://localhost:3001/users/${_id}/${friendId}`,
+      `https://hsoub-api.onrender.com/users/${_id}/${friendId}`,
       {
         method: "PATCH",
         headers: {
