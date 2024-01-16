@@ -69,15 +69,15 @@ const GuestFriend = ({ friendId, name, subtitle, userPicturePath, postId }) => {
 				</DialogTitle>
 				<DialogContent>
 				<DialogContentText id="alert-dialog-description">
-					To get access to more about users & more futures log in now!
+					لمشاهدة محتوى المستخدمين سجل الدخول...
 				</DialogContentText>
 				</DialogContent>
 				<DialogActions>
-				<Button onClick={handleClose}>Cancel</Button>
+				<Button onClick={handleClose}>إلغاء</Button>
 				<Button onClick={() => {
 					navigate("/")
 				}} autoFocus>
-					Login now!
+					تسجيل الدخول
 				</Button>
 				</DialogActions>
 			</Dialog>

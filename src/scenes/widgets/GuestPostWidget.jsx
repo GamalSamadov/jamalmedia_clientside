@@ -111,15 +111,15 @@ const GuestPostWidget = ({
 				</DialogTitle>
 				<DialogContent>
 				<DialogContentText id="alert-dialog-description">
-					To get access to like the posts & more futures log in now!
+					عملية الإعجاب مسموحة فقط لمسجلي الدخول. سجل دخولك الآن...
 				</DialogContentText>
 				</DialogContent>
 				<DialogActions>
-				<Button onClick={handleClose}>Cancel</Button>
+				<Button onClick={handleClose}>إلغاء</Button>
 				<Button onClick={() => {
 					navigate("/")
 				}} autoFocus>
-					Login now!
+					تسجيل الدخول
 				</Button>
 				</DialogActions>
 			</Dialog>
