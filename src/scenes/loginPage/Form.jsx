@@ -358,14 +358,14 @@ const Form = () => {
 			{/* REGISTER SUCCESS */}
 			<Snackbar open={openRegisterSuccessed} autoHideDuration={6000} onClose={handleCloseRegisterSuccessed}>
 			<Alert onClose={handleCloseRegisterSuccessed} severity="success" sx={{ width: '100%' }}>
-				Registered suucessfully! Try to login now!
+				تم إنشاء الحساب! يمكنك الدخول إليه الآن...
 			</Alert>
 			</Snackbar>
 
 			{/* LOGIN ERROR */}
 			<Snackbar open={openLoginError} autoHideDuration={6000} onClose={handleCloseLoginError}>
 			<Alert onClose={handleCloseLoginError} severity="error" sx={{ width: '100%' }}>
-				Email or password invalid! Try again!
+				البريد الإلكتروني أو الرقم السري خاطئ!
 			</Alert>
 			</Snackbar>
 
