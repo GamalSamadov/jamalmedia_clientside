@@ -14,13 +14,18 @@ const LoginPage = () => {
 				p="1rem 6%" 
 				textAlign="center"
 			>
-				<Typography 
-					fontWeight="bold" 
-					fontSize="32px"
-					color="primary"
+				<div 
+					cursor="pointer"
+					sx={{
+						cursor: "pointer",
+						"&:hover" : {
+							cursor: "pointer",
+						}
+					}}
+				
 				>
-					JamalMedia
-				</Typography>
+				<img src={theme.palette.mode === 'light' ? "../assets/hsoubLightLogo.png" : "../assets/hsoubDarkLogo.png"} alt="Hsoub" width={160} />
+			</div>
 			</Box>
 
 			<Box 

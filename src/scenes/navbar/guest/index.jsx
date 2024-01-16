@@ -47,35 +47,33 @@ const GuestNavbar = () => {
 		<FlexBetween padding="1rem 6%" backgroundColor={alt}>
 
 			{/* LOGO */}
-			<FlexBetween gap="1.75rem">
-				<Typography 
-					fontWeight="bold" 
-					fontSize="clamp(1rem, 2rem, 2.2rem)"
-					color="primary"
-					onClick={() => navigate("/home")}
-					sx={{
-						"&:hover" : {
-							color: primaryLight,
-							cursor: "pointer"
-						}
-					}}
+			<div 
+				onClick={() => navigate("/home")}
+				cursor="pointer"
+				sx={{
+					cursor: "pointer",
+					"&:hover" : {
+						cursor: "pointer",
+					}
+				}}
+			
+			>
+				<img src={theme.palette.mode === 'light' ? "../assets/hsoubLightLogo.png" : "../assets/hsoubDarkLogo.png"} alt="Hsoub" width={160} />
+			</div>
+
+			{isNonMobileScreens && (
+				<FlexBetween 
+					backgroundColor={neutralLight}
+					borderRadius="9px"
+					gap="3rem"
+					padding="0.1rem 1.5rem"
 				>
-					JamalMedia
-				</Typography>
-				{isNonMobileScreens && (
-					<FlexBetween 
-						backgroundColor={neutralLight}
-						borderRadius="9px"
-						gap="3rem"
-						padding="0.1rem 1.5rem"
-					>
-						<InputBase placeholder='Search' />
-						<IconButton>
-							<Search />
-						</IconButton>
-					</FlexBetween>
-				)}
-			</FlexBetween>
+					<InputBase placeholder='Search' />
+					<IconButton>
+						<Search />
+					</IconButton>
+				</FlexBetween>
+			)}
 
 			{/* DESKTOP NAVBAR */}
 			{isNonMobileScreens ? (
