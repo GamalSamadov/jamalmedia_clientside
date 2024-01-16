@@ -15,8 +15,10 @@ import * as React from 'react'
 import { useState } from 'react'
 import Dropzone from 'react-dropzone'
 import { useDispatch } from 'react-redux'
+import { useNavigate } from "react-router-dom"
 import { setLogin } from 'state'
 import * as yup from "yup"
+
 
 const Alert = React.forwardRef(function Alert(props, ref) {
 	return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -60,6 +62,7 @@ const Form = () => {
 	const isNonMobile = useMediaQuery("(min-width:600px)")
 	const isLogin = pageType === 'login'
 	const isRegister = pageType === 'register'
+	const navigate = useNavigate();
 
 	const register = async (values, onSubmitProps) => {
 		// this allows us to send form info with image
@@ -330,6 +333,23 @@ const Form = () => {
 									: "Alrady have an account? Log in hare"
 								}
 							</Typography>
+						</Box>
+
+						<Box>
+							<Button
+								fullWidth
+								onClick={() => navigate("/guest")}
+								type='button'
+								sx={{
+									m: "2rem 0",
+									p: "1rem",
+									backgroundColor: palette.primary.main,
+									color: palette.background.alt,
+									"&:hover": {color: palette.primary.main}
+								}}
+							>
+								Continue like a guest...
+							</Button>
 						</Box>
 					</form>
 				)}

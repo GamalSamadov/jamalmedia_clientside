@@ -177,111 +177,118 @@ const Friend = ({ friendId, name, subtitle, userPicturePath, postId }) => {
             </Typography>
           </Box>
         </FlexBetween>
-        {loc.pathname === `/profile/${_id}` ? 
-          <div>
-            {/* EDIT BTN */}
-            <BorderColorIcon
-              onClick={handleEditDialogOpen}
-              sx={{
-                color: palette.primary.main,
-                mr: "10px",
-                "&:hover": {
-                  cursor: "pointer",
-                }
-              }}
-            />
-            
-            {/* EDIT DIALOG */}
-            <Formik 
-              onSubmit={editPostSubmit}
-              initialValues={initialValuesEditPost}
-              validationSchema={editPostSchema}
-            >
-              {({
-                values,
-                errors,
-                touched,
-                handleBlur,
-                handleChange,
-                handleSubmit,
-              }) => (
-                <Dialog 
-                  open={editDialogOpen}
-                  onClose={handleEditDialogClose}
-                  PaperProps={{
-                    component: 'form',
-                    onSubmit: handleSubmit,
-                  }}
-                >
-                  <DialogTitle>Edit</DialogTitle>
-                  <DialogContent>
-                    <DialogContentText>
-                      Description
-                    </DialogContentText>
-                    <TextField
-                      autoFocus
-                      margin="dense"
-                      fullWidth
-                      variant="standard"
-                      onBlur={handleBlur}
-                      onChange={handleChange}
-                      name="description"
-                      error={Boolean(touched.description) && Boolean(errors.description)}
-                      helperText={touched.description && errors.description}
-                      value={values.description}
-                    />
-                  </DialogContent>
-                  <DialogActions>
-                    <Button onClick={handleEditDialogClose}>Cancel</Button>
-                    <Button type="submit">Save</Button>
-                  </DialogActions>
-                </Dialog>
-              )}
-            </Formik>
-            
-            {/* DELETE BTN */}
-            <DeleteIcon 
-              onClick={handleClickOpenDeletePost}
-              sx={{
-                color: "red",
-                "&:hover": {
-                  cursor: "pointer",
-                }
-              }}
-            />
+          {loc.pathname === `/profile/${_id}` ? 
+            <>
+              {/* EDIT BTN */}
+              <BorderColorIcon
+                onClick={handleEditDialogOpen}
+                sx={{
+                  color: palette.primary.main,
+                  mr: "10px",
+                  "&:hover": {
+                    cursor: "pointer",
+                  }
+                }}
+              />
+              
+              {/* EDIT DIALOG */}
+              <Formik 
+                onSubmit={editPostSubmit}
+                initialValues={initialValuesEditPost}
+                validationSchema={editPostSchema}
+              >
+                {({
+                  values,
+                  errors,
+                  touched,
+                  handleBlur,
+                  handleChange,
+                  handleSubmit,
+                }) => (
+                  <Dialog 
+                    open={editDialogOpen}
+                    onClose={handleEditDialogClose}
+                    PaperProps={{
+                      component: 'form',
+                      onSubmit: handleSubmit,
+                    }}
+                  >
+                    <DialogTitle>Edit</DialogTitle>
+                    <DialogContent>
+                      <DialogContentText>
+                        Description
+                      </DialogContentText>
+                      <TextField
+                        autoFocus
+                        margin="dense"
+                        fullWidth
+                        variant="standard"
+                        onBlur={handleBlur}
+                        onChange={handleChange}
+                        name="description"
+                        error={Boolean(touched.description) && Boolean(errors.description)}
+                        helperText={touched.description && errors.description}
+                        value={values.description}
+                      />
+                    </DialogContent>
+                    <DialogActions>
+                      <Button onClick={handleEditDialogClose}>Cancel</Button>
+                      <Button type="submit">Save</Button>
+                    </DialogActions>
+                  </Dialog>
+                )}
+              </Formik>
+              
+              {/* DELETE BTN */}
+              <DeleteIcon 
+                onClick={handleClickOpenDeletePost}
+                sx={{
+                  color: "red",
+                  "&:hover": {
+                    cursor: "pointer",
+                  }
+                }}
+              />
 
-            {/* DELETE DIALOG */}
-            <Dialog
-              open={openDeletePost}
-              onClose={handleCloseDeletePost}
-              PaperProps={{
-                component: 'form',
-                onSubmit: deletePostSubmit,
-              }}
-            >
-              <DialogTitle>Delete Post</DialogTitle>
-              <DialogContent>
-                <DialogContentText>
-                  Are you sure to delete this post?!
-                </DialogContentText>
-              </DialogContent>
-              <DialogActions>
-                <Button onClick={handleCloseDeletePost}>Cancel</Button>
-                <Button type="submit" sx={{color: "red"}}>Delete</Button>
-              </DialogActions>
-            </Dialog>
+              {/* DELETE DIALOG */}
+              <Dialog
+                open={openDeletePost}
+                onClose={handleCloseDeletePost}
+                PaperProps={{
+                  component: 'form',
+                  onSubmit: deletePostSubmit,
+                }}
+              >
+                <DialogTitle>Delete Post</DialogTitle>
+                <DialogContent>
+                  <DialogContentText>
+                    Are you sure to delete this post?!
+                  </DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                  <Button onClick={handleCloseDeletePost}>Cancel</Button>
+                  <Button type="submit" sx={{color: "red"}}>Delete</Button>
+                </DialogActions>
+              </Dialog>
 
-          </div>
-          : <IconButton
-              onClick={() => patchFriend()}
-              sx={{ backgroundColor: primaryLight, p: "0.6rem" }}
-            >
-              {isFriend ? (
-                <PersonRemoveOutlined sx={{ color: primaryDark }} />
-              ) : (
-                <PersonAddOutlined sx={{ color: primaryDark }} />
-              )}
-            </IconButton>
+            </>
+            : 
+            <>
+            {loc.pathname !== '/guest' && (
+              <>
+                <IconButton
+                    onClick={() => patchFriend()}
+                    sx={{ backgroundColor: primaryLight, p: "0.6rem" }}
+                  >
+                    {isFriend ? (
+                      <PersonRemoveOutlined sx={{ color: primaryDark }} />
+                    ) : (
+                      <PersonAddOutlined sx={{ color: primaryDark }} />
+                    )}
+                </IconButton>
+              </>
+            )}
+            </>
           }
       </FlexBetween>
 

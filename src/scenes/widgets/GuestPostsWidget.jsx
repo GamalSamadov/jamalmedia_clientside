@@ -1,9 +1,9 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { setPosts } from "state"
-import PostWidget from "./PostWidget"
+import GuestPostWidget from "./GuestPostWidget"
 
-const PostsWidget = ({ userId=0, isProfile = false }) => {
+const GuestPostsWidget = ({ userId=0, isProfile = false }) => {
   const dispatch = useDispatch();
   const posts = useSelector((state) => state.posts);
   const token = useSelector((state) => state.token);
@@ -52,7 +52,7 @@ const PostsWidget = ({ userId=0, isProfile = false }) => {
           likes,
           comments,
         }) => (
-          <PostWidget
+          <GuestPostWidget
             key={_id}
             postId={_id}
             postUserId={userId}
@@ -70,4 +70,4 @@ const PostsWidget = ({ userId=0, isProfile = false }) => {
   );
 };
 
-export default PostsWidget;
+export default GuestPostsWidget;

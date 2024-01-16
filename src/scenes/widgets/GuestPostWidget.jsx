@@ -1,19 +1,23 @@
 import {
 	ChatBubbleOutlineOutlined,
-	FavoriteBorderOutlined,
-	FavoriteOutlined,
-	ShareOutlined,
+	FavoriteBorderOutlined
 } from "@mui/icons-material"
 import { Box, Divider, IconButton, Typography, useTheme } from "@mui/material"
+import Button from '@mui/material/Button'
+import Dialog from '@mui/material/Dialog'
+import DialogActions from '@mui/material/DialogActions'
+import DialogContent from '@mui/material/DialogContent'
+import DialogContentText from '@mui/material/DialogContentText'
+import DialogTitle from '@mui/material/DialogTitle'
 import FlexBetween from "components/FlexBetween"
-import Friend from "components/Friend"
+import GuestFriend from "components/GuestFriend"
 import WidgetWrapper from "components/WidgetWrapper"
+import * as React from 'react'
 import { useState } from "react"
-import { useDispatch, useSelector } from "react-redux"
-import { setPost } from "state"
+import { useNavigate } from 'react-router-dom'
 
   
-const PostWidget = ({
+const GuestPostWidget = ({
 	postId,
 	postUserId,
 	name,
@@ -25,33 +29,27 @@ const PostWidget = ({
 	comments,
   }) => {
 	const [isComments, setIsComments] = useState(false);
-	const dispatch = useDispatch();
-	const token = useSelector((state) => state.token);
-	const loggedInUserId = useSelector((state) => state.user._id);
-	const isLiked = Boolean(likes[loggedInUserId]);
+
 	const likeCount = Object.keys(likes).length;
   
 	const { palette } = useTheme();
 	const main = palette.neutral.main;
-	const primary = palette.primary.main;
-  
-	const patchLike = async () => {
-	  const response = await fetch(`http://localhost:3001/posts/${postId}/like`, {
-		method: "PATCH",
-		headers: {
-		  Authorization: `Bearer ${token}`,
-		  "Content-Type": "application/json",
-		},
-		body: JSON.stringify({ userId: loggedInUserId }),
-	  });
-	  const updatedPost = await response.json();
-	  dispatch(setPost({ post: updatedPost }));
+	const navigate = useNavigate();
+
+	const [open, setOpen] = React.useState(false);
+
+	const handleClickOpen = () => {
+		setOpen(true);
+	};
+
+	const handleClose = () => {
+		setOpen(false);
 	};
   
 	return (
 		<>
 			<WidgetWrapper mb="2rem">
-				<Friend
+				<GuestFriend
 					friendId={postUserId}
 					name={name}
 					subtitle={location}
@@ -73,13 +71,9 @@ const PostWidget = ({
 				<FlexBetween mt="0.25rem">
 					<FlexBetween gap="1rem">
 						<FlexBetween gap="0.3rem">
-							<IconButton onClick={patchLike}>
-								{isLiked ? (
-									<FavoriteOutlined sx={{ color: primary }} />
-								) : (
+								<IconButton onClick={handleClickOpen}>
 									<FavoriteBorderOutlined />
-								)}
-							</IconButton>
+								</IconButton>
 						<Typography>{likeCount}</Typography>
 						</FlexBetween>
 			
@@ -90,10 +84,6 @@ const PostWidget = ({
 						<Typography>{comments.length}</Typography>
 						</FlexBetween>
 					</FlexBetween>
-		
-				<IconButton>
-					<ShareOutlined />
-				</IconButton>
 				</FlexBetween>
 				{isComments && (
 				<Box mt="0.5rem">
@@ -109,8 +99,32 @@ const PostWidget = ({
 				</Box>
 				)}
 			</WidgetWrapper>
+
+			<Dialog
+				open={open}
+				onClose={handleClose}
+				aria-labelledby="alert-dialog-title"
+				aria-describedby="alert-dialog-description"
+			>
+				<DialogTitle id="alert-dialog-title">
+				{"Login first!"}
+				</DialogTitle>
+				<DialogContent>
+				<DialogContentText id="alert-dialog-description">
+					To get access to like the posts & more futures log in now!
+				</DialogContentText>
+				</DialogContent>
+				<DialogActions>
+				<Button onClick={handleClose}>Cancel</Button>
+				<Button onClick={() => {
+					navigate("/")
+				}} autoFocus>
+					Login now!
+				</Button>
+				</DialogActions>
+			</Dialog>
 		</>
 	);
 };
   
-export default PostWidget;
+export default GuestPostWidget;

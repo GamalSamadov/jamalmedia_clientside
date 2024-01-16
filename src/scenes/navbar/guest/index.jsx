@@ -21,17 +21,16 @@ import {
 } from '@mui/material'
 import FlexBetween from 'components/FlexBetween'
 import { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { setLogout, setMode } from "state"
 
 
-const Navbar = () => {
+const GuestNavbar = () => {
 
 	const [ isMobileMenuToggled, setIsMobileMenuToggled ] = useState(false)
 	const dispatch = useDispatch()
 	const navigate = useNavigate()
-	const user = useSelector((state) => state.user)
 	const isNonMobileScreens = useMediaQuery("(min-width: 1000px)")
 
 	const theme = useTheme()
@@ -41,9 +40,8 @@ const Navbar = () => {
 	const primaryLight = theme.palette.primary.light
 	const alt = theme.palette.background.alt
 
-	let fullName = `${user.firstName} ${user.lastName}`
-
 	const loc = useLocation()
+	const fullName = ""
 
 	return (
 		<FlexBetween padding="1rem 6%" backgroundColor={alt}>
@@ -204,4 +202,4 @@ const Navbar = () => {
 	)
 }
 
-export default Navbar
+export default GuestNavbar
