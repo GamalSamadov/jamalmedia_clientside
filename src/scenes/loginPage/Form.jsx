@@ -73,7 +73,7 @@ const Form = () => {
 		formData.append("picturePath", values.picture.name);
 	
 		const savedUserResponse = await fetch(
-		  "https://hsoub-api.onrender.com/register",
+		  "https://hsoub-api.onrender.com/auth/register",
 		  {
 			method: "POST",
 			body: formData,
