@@ -65,7 +65,7 @@ const GuestFriend = ({ friendId, name, subtitle, userPicturePath, postId }) => {
 				aria-describedby="alert-dialog-description"
 			>
 				<DialogTitle id="alert-dialog-title">
-				{"Login first!"}
+				  {"سجل الدخول أولا"}
 				</DialogTitle>
 				<DialogContent>
 				<DialogContentText id="alert-dialog-description">
