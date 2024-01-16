@@ -73,7 +73,7 @@ const Form = () => {
 		formData.append("picturePath", values.picture.name);
 	
 		const savedUserResponse = await fetch(
-		  "https://hsoubgram-api.vercel.app/register",
+		  "https://hsoub-api.onrender.com/register",
 		  {
 			method: "POST",
 			body: formData,
@@ -92,7 +92,7 @@ const Form = () => {
 	
 	const login = (values, onSubmitProps) => {
 		fetch(
-			"https://hsoubgram-api.vercel.app/auth/login", 
+			"https://hsoub-api.onrender.com/auth/login", 
 			{
 				method: "POST",
 				headers: { "Content-Type": "application/json" },

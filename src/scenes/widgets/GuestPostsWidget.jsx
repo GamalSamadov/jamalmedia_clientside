@@ -9,7 +9,7 @@ const GuestPostsWidget = ({ userId=0, isProfile = false }) => {
   const token = useSelector((state) => state.token);
 
   const getPosts = async () => {
-    const response = await fetch("https://hsoubgram-api.vercel.app/posts", {
+    const response = await fetch("https://hsoub-api.onrender.com/posts", {
       method: "GET",
       // headers: { Authorization: `Bearer ${token}` },
     });
@@ -19,7 +19,7 @@ const GuestPostsWidget = ({ userId=0, isProfile = false }) => {
 
   const getUserPosts = async () => {
     const response = await fetch(
-      `https://hsoubgram-api.vercel.app/posts/${userId}/posts`,
+      `https://hsoub-api.onrender.com/posts/${userId}/posts`,
       {
         method: "GET",
         headers: { Authorization: `Bearer ${token}` },

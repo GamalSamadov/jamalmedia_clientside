@@ -8,7 +8,7 @@ const UserImage = ({ image, size = "60px" }) => {
         width={size}
         height={size}
         alt="user"
-        src={`https://hsoubgram-api.vercel.app/assets/${image}`}
+        src={`https://hsoub-api.onrender.com/assets/${image}`}
       />
     </Box>
   );
