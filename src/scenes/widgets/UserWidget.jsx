@@ -1,8 +1,8 @@
 import {
-	EditOutlined,
-	LocationOnOutlined,
-	ManageAccountsOutlined,
-	WorkOutlineOutlined,
+    EditOutlined,
+    LocationOnOutlined,
+    ManageAccountsOutlined,
+    WorkOutlineOutlined,
 } from "@mui/icons-material"
 import { Box, Divider, Typography, useTheme } from "@mui/material"
 import FlexBetween from "components/FlexBetween"
@@ -24,7 +24,7 @@ const UserWidget = ({ userId, picturePath }) => {
 	const main = palette.neutral.main;
 	
 	const getUser = async () => {
-	  const response = await fetch(`https://hsoub-api.onrender.com/users/${userId}`, {
+	  const response = await fetch(`https://hsoubgram-api.vercel.app/users/${userId}`, {
 		method: "GET",
 		headers: { Authorization: `Bearer ${token}` },
 	  });

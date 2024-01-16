@@ -1,16 +1,16 @@
 import {
-	DeleteOutlined,
-	EditOutlined,
-	ImageOutlined
+    DeleteOutlined,
+    EditOutlined,
+    ImageOutlined
 } from "@mui/icons-material"
 import {
-	Box,
-	Button,
-	Divider,
-	IconButton,
-	InputBase,
-	Typography,
-	useTheme
+    Box,
+    Button,
+    Divider,
+    IconButton,
+    InputBase,
+    Typography,
+    useTheme
 } from "@mui/material"
 import FlexBetween from "components/FlexBetween"
 import UserImage from "components/UserImage"
@@ -40,7 +40,7 @@ const MyPostWidget = ({ picturePath }) => {
 		formData.append("picturePath", image.name);
 	  }
   
-	  const response = await fetch(`https://hsoub-api.onrender.com/posts`, {
+	  const response = await fetch(`https://hsoubgram-api.vercel.app/posts`, {
 		method: "POST",
 		headers: { Authorization: `Bearer ${token}` },
 		body: formData,
