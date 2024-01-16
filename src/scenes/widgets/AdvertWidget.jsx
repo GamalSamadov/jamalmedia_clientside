@@ -12,24 +12,27 @@ const AdvertWidget = () => {
     <WidgetWrapper>
       <FlexBetween>
         <Typography color={dark} variant="h5" fontWeight="500">
-          Sponsored
+            أكاديمية حسوب
         </Typography>
-        <Typography color={medium}>Create Ad</Typography>
+        <Typography color={medium}>إعلان</Typography>
       </FlexBetween>
-      <img
-        width="100%"
-        height="auto"
-        alt="advert"
-        src="http://localhost:3001/assets/info4.jpeg"
-        style={{ borderRadius: "0.75rem", margin: "0.75rem 0" }}
-      />
+      <a href="https://academy.hsoub.com/learn/artificial-intelligence/">
+        <img
+          width="100%"
+          height="auto"
+          alt="advert"
+          src="http://localhost:3001/assets/ai.png"
+          style={{ borderRadius: "0.75rem", margin: "0.75rem 0" }}
+        />
+      </a>
       <FlexBetween>
-        <Typography color={main}>MikaCosmetics</Typography>
-        <Typography color={medium}>mikacosmetics.com</Typography>
+        <Typography color={main}>دورة الذكاء الاصطناعي</Typography>
+        <Typography color={medium}>
+          academy.hsoub.com
+        </Typography>
       </FlexBetween>
       <Typography color={medium} m="0.5rem 0">
-        Your pathway to stunning and immaculate beauty and made sure your skin
-        is exfoliating skin and shining like light.
+      انطلق في تعلم برمجة الذكاء الاصطناعي AI وتحليل البيانات مع هذه الدورة، التي ستتعلم فيها كل ما تحتاج إليه من الصفر دون حاجة إلى معرفة مسبقة، وتمدك بكل المعلومات لبناء نماذج ذكاء اصطناعي متخصصة.
       </Typography>
     </WidgetWrapper>
   );

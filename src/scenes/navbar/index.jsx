@@ -70,7 +70,7 @@ const Navbar = () => {
 					gap="3rem"
 					padding="0.1rem 1.5rem"
 				>
-					<InputBase placeholder='Search' />
+					<InputBase placeholder='بحث...' />
 					<IconButton>
 						<Search />
 					</IconButton>
@@ -92,39 +92,35 @@ const Navbar = () => {
 						)}
 					</IconButton>
 
-					{ loc.pathname !== "/guest" &&
-						<>
-							<Message sx={{ fontSize: "25px"}} />
-							<Notifications sx={{ fontSize: "25px"}} />
-							<Help sx={{ fontSize: "25px"}} />
-							<FormControl variant='standard' value={fullName}>
-								<Select 
-									value={fullName}
-									input={<InputBase />}
-									sx={{
-										backgroundColor: neutralLight,
-										width: "150px",
-										borderRadius: "0.25rem",
-										padding: "0.25rem 1rem",
-										"& .MuiSvgIcon-root": {
-											pr: "0.25rem",
-											width: "3rem"
-										},
-										"& MuiSelect-select:focus": {
-											backgroundColor: neutralLight,
-										},
+				
+					<Message sx={{ fontSize: "25px"}} />
+					<Notifications sx={{ fontSize: "25px"}} />
+					<Help sx={{ fontSize: "25px"}} />
+					<FormControl variant='standard' value={fullName}>
+						<Select 
+							value={fullName}
+							input={<InputBase />}
+							sx={{
+								backgroundColor: neutralLight,
+								width: "150px",
+								borderRadius: "0.25rem",
+								padding: "0.25rem 1rem",
+								"& .MuiSvgIcon-root": {
+									pr: "0.25rem",
+									width: "3rem"
+								},
+								"& MuiSelect-select:focus": {
+									backgroundColor: neutralLight,
+								},
 
-									}}
-								>
-									<MenuItem value={fullName}>
-										<Typography>{fullName}</Typography>
-									</MenuItem>
-									<MenuItem onClick={() => dispatch(setLogout())}>Logout</MenuItem>
-								</Select>
-							</FormControl>
-						</>
-					}
-
+							}}
+						>
+							<MenuItem value={fullName}>
+								<Typography>{fullName}</Typography>
+							</MenuItem>
+							<MenuItem onClick={() => dispatch(setLogout())}>تسجيل الخروج</MenuItem>
+						</Select>
+					</FormControl>
 				</FlexBetween>
 			) : (
 				<IconButton 

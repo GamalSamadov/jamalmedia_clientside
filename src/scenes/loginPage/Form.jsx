@@ -25,18 +25,18 @@ const Alert = React.forwardRef(function Alert(props, ref) {
 });
 
 const registerSchema = yup.object().shape({
-	firstName: yup.string().required("required"),
-	lastName: yup.string().required("required"),
-	email: yup.string().email("Invalid email").required("required"),
-	password: yup.string().required("required"),
-	location: yup.string().required("required"),
-	occupation: yup.string().required("required"),
-	picture: yup.string().required("required"),
+	firstName: yup.string().required("حقل إجباري"),
+	lastName: yup.string().required("حقل إجباري"),
+	email: yup.string().email("البريد الإلكتروني غير صالح").required("حقل إجباري"),
+	password: yup.string().required("حقل إجباري"),
+	location: yup.string().required("حقل إجباري"),
+	occupation: yup.string().required("حقل إجباري"),
+	picture: yup.string().required("حقل إجباري"),
 })
 
 const loginSchema = yup.object().shape({
-	email: yup.string().email("Invalid email").required("required"),
-	password: yup.string().required("required"),
+	email: yup.string().email("البريد الإلكتروني غير صالح").required("حقل إجباري"),
+	password: yup.string().required("حقل إجباري"),
 })
 
 const initialValuesRegister = {
@@ -186,7 +186,7 @@ const Form = () => {
 							{isRegister && (
 								<>
 									<TextField
-										label="First Name"
+										label="الاسم"
 										onBlur={handleBlur}
 										onChange={handleChange}
 										value={values.firstName}
@@ -198,7 +198,7 @@ const Form = () => {
 										}}
 									/>
 									<TextField
-										label="Last Name"
+										label="اسم العائلة"
 										onBlur={handleBlur}
 										onChange={handleChange}
 										value={values.lastName}
@@ -210,7 +210,7 @@ const Form = () => {
 										}}
 									/>
 									<TextField
-										label="Location"
+										label="العنوان"
 										onBlur={handleBlur}
 										onChange={handleChange}
 										value={values.location}
@@ -222,7 +222,7 @@ const Form = () => {
 										}}
 									/>
 									<TextField
-										label="Occupation"
+										label="الوظيفة"
 										onBlur={handleBlur}
 										onChange={handleChange}
 										value={values.occupation}
@@ -257,7 +257,7 @@ const Form = () => {
 												>
 													<input {...getInputProps()}/>
 													{!values.picture ? (
-														<p>Add picture Hare</p>
+														<p>اسحب صورتك الشخصية هنا</p>
 													) : (
 														<FlexBetween>
 															<Typography>
@@ -273,7 +273,7 @@ const Form = () => {
 								</>
 							)}
 							<TextField
-								label="Email"
+								label="البريد الإلكتروني"
 								onBlur={handleBlur}
 								onChange={handleChange}
 								value={values.email}
@@ -285,7 +285,7 @@ const Form = () => {
 								}}
 							/>
 							<TextField
-								label="Password"
+								label="الرقم السري"
 								type="password"
 								onBlur={handleBlur}
 								onChange={handleChange}
@@ -312,7 +312,7 @@ const Form = () => {
 									"&:hover": {color: palette.primary.main}
 								}}
 							>
-								{isLogin ? "LOGIN": "REGISTER"}
+								{isLogin ? "تسجيل الدخول": "إنشاء الحساب"}
 							</Button>
 							<Typography
 								onClick={() => {
@@ -329,8 +329,8 @@ const Form = () => {
 								}}
 							>
 								{isLogin 
-									? "Don't have an account? Sign up hare" 
-									: "Alrady have an account? Log in hare"
+									? "لا يوجد لديك حساب؟ أنشئ من هنا..." 
+									: "هل لديك حساب؟ سجل الدخول من هنا..."
 								}
 							</Typography>
 						</Box>
@@ -348,7 +348,7 @@ const Form = () => {
 									"&:hover": {color: palette.primary.main}
 								}}
 							>
-								Continue like a guest...
+								متابعة كضيف...
 							</Button>
 						</Box>
 					</form>

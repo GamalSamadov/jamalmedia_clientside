@@ -56,7 +56,7 @@ const MyPostWidget = ({ picturePath }) => {
 		<FlexBetween gap="1.5rem">
 		  <UserImage image={picturePath} />
 		  <InputBase
-			placeholder="What's on your mind..."
+			placeholder="اكتب ما في بالك..."
 			onChange={(e) => setPost(e.target.value)}
 			value={post}
 			sx={{
@@ -90,7 +90,7 @@ const MyPostWidget = ({ picturePath }) => {
 				  >
 					<input {...getInputProps()} />
 					{!image ? (
-					  <p>Add Image Here</p>
+					  <p>إسحب الصورة هنا</p>
 					) : (
 					  <FlexBetween>
 						<Typography>{image.name}</Typography>
@@ -121,7 +121,7 @@ const MyPostWidget = ({ picturePath }) => {
 			  color={mediumMain}
 			  sx={{ "&:hover": { cursor: "pointer", color: medium } }}
 			>
-			  Image
+			  صورة
 			</Typography>
 		  </FlexBetween>
   
@@ -134,7 +134,7 @@ const MyPostWidget = ({ picturePath }) => {
 			  borderRadius: "3rem",
 			}}
 		  >
-			POST
+			نشر
 		  </Button>
 		</FlexBetween>
 	  </WidgetWrapper>

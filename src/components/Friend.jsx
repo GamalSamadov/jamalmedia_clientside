@@ -25,7 +25,7 @@ const Alert = React.forwardRef(function Alert(props, ref) {
 });
 
 const editPostSchema = yup.object().shape({
-	description: yup.string().required("required"),
+	description: yup.string().required("حقل إجباري"),
 })
 
 const initialValuesEditPost = {
@@ -184,7 +184,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath, postId }) => {
               onClick={handleEditDialogOpen}
               sx={{
                 color: palette.primary.main,
-                mr: "10px",
+                ml: "15px",
                 "&:hover": {
                   cursor: "pointer",
                 }
@@ -213,10 +213,10 @@ const Friend = ({ friendId, name, subtitle, userPicturePath, postId }) => {
                     onSubmit: handleSubmit,
                   }}
                 >
-                  <DialogTitle>Edit</DialogTitle>
+                  <DialogTitle>التعديل</DialogTitle>
                   <DialogContent>
                     <DialogContentText>
-                      Description
+                      وصف المنشور
                     </DialogContentText>
                     <TextField
                       autoFocus
@@ -232,8 +232,8 @@ const Friend = ({ friendId, name, subtitle, userPicturePath, postId }) => {
                     />
                   </DialogContent>
                   <DialogActions>
-                    <Button onClick={handleEditDialogClose}>Cancel</Button>
-                    <Button type="submit">Save</Button>
+                    <Button onClick={handleEditDialogClose}>إلغاء</Button>
+                    <Button type="submit">حفظ</Button>
                   </DialogActions>
                 </Dialog>
               )}
@@ -259,15 +259,15 @@ const Friend = ({ friendId, name, subtitle, userPicturePath, postId }) => {
                 onSubmit: deletePostSubmit,
               }}
             >
-              <DialogTitle>Delete Post</DialogTitle>
+              <DialogTitle>حذع المنشور</DialogTitle>
               <DialogContent>
                 <DialogContentText>
-                  Are you sure to delete this post?!
+                  هل أنت متأكد من الحذف؟!
                 </DialogContentText>
               </DialogContent>
               <DialogActions>
-                <Button onClick={handleCloseDeletePost}>Cancel</Button>
-                <Button type="submit" sx={{color: "red"}}>Delete</Button>
+                <Button onClick={handleCloseDeletePost}>إلغاء</Button>
+                <Button type="submit" sx={{color: "red"}}>حذف</Button>
               </DialogActions>
             </Dialog>
 
@@ -288,14 +288,14 @@ const Friend = ({ friendId, name, subtitle, userPicturePath, postId }) => {
       {/* POST EDIT SUCCESS */}
       <Snackbar open={openEditSuccessed} autoHideDuration={4000} onClose={handleCloseEditSuccessed}>
       <Alert onClose={handleCloseEditSuccessed} severity="success" sx={{ width: '100%' }}>
-        Post edited successfully!
+        تم التعديل!
       </Alert>
       </Snackbar>
 
       {/* POST DELETE SUCCESS */}
       <Snackbar open={openDeleteSuccessed} autoHideDuration={4000} onClose={handleCloseDeleteSuccessed}>
       <Alert onClose={handleCloseDeleteSuccessed} severity="info" sx={{ width: '100%' }}>
-        Post deleted!
+        تم الحذف!
       </Alert>
       </Snackbar>
     </>

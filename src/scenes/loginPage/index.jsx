@@ -42,7 +42,7 @@ const LoginPage = () => {
 						mb: "1.5rem",
 					}}
 				>
-					Welcome to Jamal Media, the bast social media in this planet ;)
+					أهلا بك في حسوب غرام أفضل تطبيق على وجه الأرض
 				</Typography>
 
 				<Form />
