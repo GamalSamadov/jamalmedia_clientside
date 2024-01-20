@@ -31,3 +31,11 @@
 </div>
 
 ###
+
+<h2 align="left">Setup:</h2>
+
+###
+
+<p align="left">✨ Open your terminal and type: npm install<br>✨ Then: npm start<br>This commands will start the application locally</p>
+
+###
