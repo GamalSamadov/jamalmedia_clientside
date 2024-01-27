@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box } from "@mui/material"
 
 const UserImage = ({ image, size = "60px" }) => {
   return (
@@ -8,7 +8,7 @@ const UserImage = ({ image, size = "60px" }) => {
         width={size}
         height={size}
         alt="user"
-        src={`https://hsoub-api.onrender.com/assets/${image}`}
+        src={`https://hsoubgram-app-bf104640da73.herokuapp.com/assets/${image}`}
       />
     </Box>
   );

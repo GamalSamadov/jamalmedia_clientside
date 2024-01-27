@@ -73,7 +73,7 @@ const Form = () => {
 		formData.append("picturePath", values.picture.name);
 	
 		const savedUserResponse = await fetch(
-		  "https://hsoub-api.onrender.com/auth/register",
+		  `https://hsoubgram-app-bf104640da73.herokuapp.com/auth/register`,
 		  {
 			method: "POST",
 			body: formData,
@@ -92,7 +92,7 @@ const Form = () => {
 	
 	const login = (values, onSubmitProps) => {
 		fetch(
-			"https://hsoub-api.onrender.com/auth/login", 
+			`https://hsoubgram-app-bf104640da73.herokuapp.com/auth/login`, 
 			{
 				method: "POST",
 				headers: { "Content-Type": "application/json" },
