@@ -21,7 +21,7 @@ const AdvertWidget = () => {
           width="100%"
           height="auto"
           alt="advert"
-          src={`https://hsoubgram-app-bf104640da73.herokuapp.com/assets/ai.png`}
+          src={`https://hsoubgram-api-2a924aeb6d65.herokuapp.com/assets/ai.png`}
           style={{ borderRadius: "0.75rem", margin: "0.75rem 0" }}
         />
       </a>

@@ -8,7 +8,7 @@ const UserImage = ({ image, size = "60px" }) => {
         width={size}
         height={size}
         alt="user"
-        src={`https://hsoubgram-app-bf104640da73.herokuapp.com/assets/${image}`}
+        src={`https://hsoubgram-api-2a924aeb6d65.herokuapp.com/assets/${image}`}
       />
     </Box>
   );

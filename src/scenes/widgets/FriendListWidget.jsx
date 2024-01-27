@@ -14,7 +14,7 @@ const FriendListWidget = ({ userId }) => {
 
   const getFriends = async () => {
     const response = await fetch(
-      `https://hsoubgram-app-bf104640da73.herokuapp.com/users/${userId}/friends`,
+      `https://hsoubgram-api-2a924aeb6d65.herokuapp.com/users/${userId}/friends`,
       {
         method: "GET",
         headers: { Authorization: `Bearer ${token}` },

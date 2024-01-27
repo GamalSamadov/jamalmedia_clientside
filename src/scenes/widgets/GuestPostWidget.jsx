@@ -1,6 +1,6 @@
 import {
-    ChatBubbleOutlineOutlined,
-    FavoriteBorderOutlined
+	ChatBubbleOutlineOutlined,
+	FavoriteBorderOutlined
 } from "@mui/icons-material"
 import { Box, Divider, IconButton, Typography, useTheme } from "@mui/material"
 import Button from '@mui/material/Button'
@@ -65,7 +65,7 @@ const GuestPostWidget = ({
 							height="auto"
 							alt="post"
 							style={{ borderRadius: "0.75rem", marginTop: "0.75rem" }}
-							src={`https://hsoubgram-app-bf104640da73.herokuapp.com/assets/${picturePath}`}
+							src={`https://hsoubgram-api-2a924aeb6d65.herokuapp.com/assets/${picturePath}`}
 						/>
 					)}
 				<FlexBetween mt="0.25rem">

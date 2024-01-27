@@ -1,16 +1,16 @@
 import {
-    DeleteOutlined,
-    EditOutlined,
-    ImageOutlined
+	DeleteOutlined,
+	EditOutlined,
+	ImageOutlined
 } from "@mui/icons-material"
 import {
-    Box,
-    Button,
-    Divider,
-    IconButton,
-    InputBase,
-    Typography,
-    useTheme
+	Box,
+	Button,
+	Divider,
+	IconButton,
+	InputBase,
+	Typography,
+	useTheme
 } from "@mui/material"
 import FlexBetween from "components/FlexBetween"
 import UserImage from "components/UserImage"
@@ -40,7 +40,7 @@ const MyPostWidget = ({ picturePath }) => {
 		formData.append("picturePath", image.name);
 	  }
   
-	  const response = await fetch(`https://hsoubgram-app-bf104640da73.herokuapp.com/posts`, {
+	  const response = await fetch(`https://hsoubgram-api-2a924aeb6d65.herokuapp.com/posts`, {
 		method: "POST",
 		headers: { Authorization: `Bearer ${token}` },
 		body: formData,

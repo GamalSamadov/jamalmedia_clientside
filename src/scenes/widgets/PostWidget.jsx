@@ -1,8 +1,8 @@
 import {
-    ChatBubbleOutlineOutlined,
-    FavoriteBorderOutlined,
-    FavoriteOutlined,
-    ShareOutlined,
+	ChatBubbleOutlineOutlined,
+	FavoriteBorderOutlined,
+	FavoriteOutlined,
+	ShareOutlined,
 } from "@mui/icons-material"
 import { Box, Divider, IconButton, Typography, useTheme } from "@mui/material"
 import FlexBetween from "components/FlexBetween"
@@ -36,7 +36,7 @@ const PostWidget = ({
 	const primary = palette.primary.main;
   
 	const patchLike = async () => {
-	  const response = await fetch(`https://hsoubgram-app-bf104640da73.herokuapp.com/posts/${postId}/like`, {
+	  const response = await fetch(`https://hsoubgram-api-2a924aeb6d65.herokuapp.com/posts/${postId}/like`, {
 		method: "PATCH",
 		headers: {
 		  Authorization: `Bearer ${token}`,
@@ -67,7 +67,7 @@ const PostWidget = ({
 							height="auto"
 							alt="post"
 							style={{ borderRadius: "0.75rem", marginTop: "0.75rem" }}
-							src={`https://hsoubgram-app-bf104640da73.herokuapp.com/assets/${picturePath}`}
+							src={`https://hsoubgram-api-2a924aeb6d65.herokuapp.com/assets/${picturePath}`}
 						/>
 					)}
 				<FlexBetween mt="0.25rem">
