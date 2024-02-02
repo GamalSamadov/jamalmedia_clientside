@@ -1,7 +1,7 @@
-import { useEffect } from "react"
-import { useDispatch, useSelector } from "react-redux"
-import { setPosts } from "state"
-import GuestPostWidget from "./GuestPostWidget"
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setPosts } from "state";
+import GuestPostWidget from "./GuestPostWidget";
 
 const GuestPostsWidget = ({ userId=0, isProfile = false }) => {
   const dispatch = useDispatch();
@@ -9,7 +9,7 @@ const GuestPostsWidget = ({ userId=0, isProfile = false }) => {
   const token = useSelector((state) => state.token);
 
   const getPosts = async () => {
-    const response = await fetch(`https://hsoubgram-api-2a924aeb6d65.herokuapp.com/posts`, {
+    const response = await fetch(`https://hsoubgram-app-bf104640da73.herokuapp.com/posts`, {
       method: "GET",
       // headers: { Authorization: `Bearer ${token}` },
     });
@@ -19,7 +19,7 @@ const GuestPostsWidget = ({ userId=0, isProfile = false }) => {
 
   const getUserPosts = async () => {
     const response = await fetch(
-      `https://hsoubgram-api-2a924aeb6d65.herokuapp.com/posts/${userId}/posts`,
+      `https://hsoubgram-app-bf104640da73.herokuapp.com/posts/${userId}/posts`,
       {
         method: "GET",
         headers: { Authorization: `Bearer ${token}` },

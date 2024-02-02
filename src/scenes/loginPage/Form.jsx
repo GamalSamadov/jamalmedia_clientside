@@ -19,7 +19,6 @@ import { useNavigate } from "react-router-dom"
 import { setLogin } from 'state'
 import * as yup from "yup"
 
-
 const Alert = React.forwardRef(function Alert(props, ref) {
 	return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
@@ -73,7 +72,7 @@ const Form = () => {
 		formData.append("picturePath", values.picture.name);
 	
 		const savedUserResponse = await fetch(
-		  `https://hsoubgram-api-2a924aeb6d65.herokuapp.com/auth/register`,
+		  `https://hsoubgram-app-bf104640da73.herokuapp.com/auth/register`,
 		  {
 			method: "POST",
 			body: formData,
@@ -92,7 +91,7 @@ const Form = () => {
 	
 	const login = (values, onSubmitProps) => {
 		fetch(
-			`https://hsoubgram-api-2a924aeb6d65.herokuapp.com/auth/login`, 
+			`https://hsoubgram-app-bf104640da73.herokuapp.com/auth/login`, 
 			{
 				method: "POST",
 				headers: { "Content-Type": "application/json" },
@@ -106,7 +105,6 @@ const Form = () => {
 			loginAlert() // error
 		})
 		.then((user) => {
-			console.log(user)
 			if (user) {
 				dispatch(
 					setLogin({
@@ -154,6 +152,7 @@ const Form = () => {
 	  setOpenLoginError(false);
 	};
 
+	console.log(process.env.SERVERSIDE_URL)
 	return (
 		<>
 			<Formik 
