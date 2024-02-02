@@ -40,7 +40,7 @@ const MyPostWidget = ({ picturePath }) => {
 		formData.append("picturePath", image.name);
 	  }
   
-	  const response = await fetch(`https://hsoubgram-app-bf104640da73.herokuapp.com/posts`, {
+	  const response = await fetch(`https://hsoubgram.onrender.com/posts`, {
 		method: "POST",
 		headers: { Authorization: `Bearer ${token}` },
 		body: formData,

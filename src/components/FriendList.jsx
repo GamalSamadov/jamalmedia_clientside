@@ -22,7 +22,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
 
   const patchFriend = async () => {
     const response = await fetch(
-      `https://hsoubgram-app-bf104640da73.herokuapp.com/users/${_id}/${friendId}`,
+      `https://hsoubgram.onrender.com/users/${_id}/${friendId}`,
       {
         method: "PATCH",
         headers: {

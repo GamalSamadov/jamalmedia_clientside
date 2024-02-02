@@ -49,7 +49,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath, postId }) => {
 
   const patchFriend = async () => {
     const response = await fetch(
-      `https://hsoubgram-app-bf104640da73.herokuapp.com/users/${_id}/${friendId}`,
+      `https://hsoubgram.onrender.com/users/${_id}/${friendId}`,
       {
         method: "PATCH",
         headers: {
@@ -64,7 +64,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath, postId }) => {
   
   const deletePostSubmit = async (e) => {
     await fetch(
-      `https://hsoubgram-app-bf104640da73.herokuapp.com/posts/${postId}/`,
+      `https://hsoubgram.onrender.com/posts/${postId}/`,
       {
         method: "DELETE",
         headers: {
@@ -80,7 +80,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath, postId }) => {
 
   const editPostSubmit = async (values, onSubmitProps) => {
     const response = await fetch(
-      `https://hsoubgram-app-bf104640da73.herokuapp.com/posts/${postId}`,
+      `https://hsoubgram.onrender.com/posts/${postId}`,
       {
         method: "PATCH",
         headers: {

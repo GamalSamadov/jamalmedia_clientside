@@ -24,7 +24,7 @@ const UserWidget = ({ userId, picturePath }) => {
 	const main = palette.neutral.main;
 	
 	const getUser = async () => {
-	  const response = await fetch(`https://hsoubgram-app-bf104640da73.herokuapp.com/users/${userId}`, {
+	  const response = await fetch(`https://hsoubgram.onrender.com/users/${userId}`, {
 		method: "GET",
 		headers: { Authorization: `Bearer ${token}` },
 	  });
