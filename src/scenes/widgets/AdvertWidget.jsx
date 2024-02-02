@@ -21,7 +21,7 @@ const AdvertWidget = () => {
           width="100%"
           height="auto"
           alt="advert"
-          src={`https://hsoub-api.onrender.com/assets/ai.png`}
+          src="assets/ai.png"
           style={{ borderRadius: "0.75rem", margin: "0.75rem 0" }}
         />
       </a>

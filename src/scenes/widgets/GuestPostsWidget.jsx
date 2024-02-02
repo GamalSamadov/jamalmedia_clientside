@@ -1,7 +1,7 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { setPosts } from "state";
-import GuestPostWidget from "./GuestPostWidget";
+import { useEffect } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { setPosts } from "state"
+import GuestPostWidget from "./GuestPostWidget"
 
 const GuestPostsWidget = ({ userId=0, isProfile = false }) => {
   const dispatch = useDispatch();
