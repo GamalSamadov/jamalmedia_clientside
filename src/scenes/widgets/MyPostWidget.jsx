@@ -1,16 +1,16 @@
 import {
-    DeleteOutlined,
-    EditOutlined,
-    ImageOutlined
+	DeleteOutlined,
+	EditOutlined,
+	ImageOutlined
 } from "@mui/icons-material"
 import {
-    Box,
-    Button,
-    Divider,
-    IconButton,
-    InputBase,
-    Typography,
-    useTheme
+	Box,
+	Button,
+	Divider,
+	IconButton,
+	InputBase,
+	Typography,
+	useTheme
 } from "@mui/material"
 import FlexBetween from "components/FlexBetween"
 import UserImage from "components/UserImage"
@@ -42,7 +42,11 @@ const MyPostWidget = ({ picturePath }) => {
   
 	  const response = await fetch(`https://hsoub-api.onrender.com/posts`, {
 		method: "POST",
-		headers: { Authorization: `Bearer ${token}` },
+		headers: { 
+			Authorization: `Bearer ${token}`,
+			"Access-Control-Allow-Origin": "*",
+			"Access-Control-Allow-Methods": "POST"
+		 },
 		body: formData,
 	  });
 	  const posts = await response.json();

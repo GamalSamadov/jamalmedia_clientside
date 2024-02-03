@@ -1,8 +1,8 @@
 import {
-    ChatBubbleOutlineOutlined,
-    FavoriteBorderOutlined,
-    FavoriteOutlined,
-    ShareOutlined,
+	ChatBubbleOutlineOutlined,
+	FavoriteBorderOutlined,
+	FavoriteOutlined,
+	ShareOutlined,
 } from "@mui/icons-material"
 import { Box, Divider, IconButton, Typography, useTheme } from "@mui/material"
 import FlexBetween from "components/FlexBetween"
@@ -41,6 +41,8 @@ const PostWidget = ({
 		headers: {
 		  Authorization: `Bearer ${token}`,
 		  "Content-Type": "application/json",
+		  "Access-Control-Allow-Origin": "*",
+		  "Access-Control-Allow-Methods": "GET"
 		},
 		body: JSON.stringify({ userId: loggedInUserId }),
 	  });
@@ -64,6 +66,7 @@ const PostWidget = ({
 					{picturePath && (
 						<img
 							width="100%"
+							crossOrigin="anonymous"
 							height="auto"
 							alt="post"
 							style={{ borderRadius: "0.75rem", marginTop: "0.75rem" }}
