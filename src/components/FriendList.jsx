@@ -72,7 +72,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
             ) : (
               <PersonAddOutlined sx={{ color: primaryDark }} />
             )}
-          </IconButton>
+      </IconButton>
     </FlexBetween>
   );
 };
