@@ -23,8 +23,6 @@ const PostsWidget = ({ userId=0, isProfile = false }) => {
       {
         method: "GET",
         headers: { Authorization: `Bearer ${token}` },
-        "Access-Control-Allow-Origin": "*",
-		    "Access-Control-Allow-Methods": "GET"
       }
     );
     const data = await response.json();

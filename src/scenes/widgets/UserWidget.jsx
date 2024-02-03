@@ -1,8 +1,8 @@
 import {
-    EditOutlined,
-    LocationOnOutlined,
-    ManageAccountsOutlined,
-    WorkOutlineOutlined,
+	EditOutlined,
+	LocationOnOutlined,
+	ManageAccountsOutlined,
+	WorkOutlineOutlined,
 } from "@mui/icons-material"
 import { Box, Divider, Typography, useTheme } from "@mui/material"
 import FlexBetween from "components/FlexBetween"

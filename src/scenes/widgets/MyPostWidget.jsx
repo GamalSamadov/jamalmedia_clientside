@@ -42,11 +42,7 @@ const MyPostWidget = ({ picturePath }) => {
   
 	  const response = await fetch(`https://hsoub-api.onrender.com/posts`, {
 		method: "POST",
-		headers: { 
-			Authorization: `Bearer ${token}`,
-			"Access-Control-Allow-Origin": "*",
-			"Access-Control-Allow-Methods": "POST"
-		 },
+		headers: { Authorization: `Bearer ${token}` },
 		body: formData,
 	  });
 	  const posts = await response.json();

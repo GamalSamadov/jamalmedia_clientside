@@ -11,7 +11,7 @@ const GuestPostsWidget = ({ userId=0, isProfile = false }) => {
   const getPosts = async () => {
     const response = await fetch(`https://hsoub-api.onrender.com/posts`, {
       method: "GET",
-      // headers: { Authorization: `Bearer ${token}` },
+      headers: { Authorization: `Bearer ${token}` },
     });
     const data = await response.json();
     dispatch(setPosts({ posts: data }));
