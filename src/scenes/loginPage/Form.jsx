@@ -1,11 +1,11 @@
 import EditOutlinedIcon from "@mui/icons-material/EditOutlined"
 import {
-    Box,
-    Button,
-    TextField,
-    Typography,
-    useMediaQuery,
-    useTheme
+	Box,
+	Button,
+	TextField,
+	Typography,
+	useMediaQuery,
+	useTheme
 } from "@mui/material"
 import MuiAlert from '@mui/material/Alert'
 import Snackbar from '@mui/material/Snackbar'
@@ -66,9 +66,11 @@ const Form = () => {
 	const register = async (values, onSubmitProps) => {
 		// this allows us to send form info with image
 		const formData = new FormData();
+
 		for (let value in values) {
 		  formData.append(value, values[value]);
 		}
+		
 		formData.append("picturePath", values.picture.name);
 	
 		const savedUserResponse = await fetch(
@@ -76,7 +78,6 @@ const Form = () => {
 		  {
 			method: "POST",
 			body: formData,
-			
 		  }
 		);
 		const savedUser = await savedUserResponse.json();
@@ -266,8 +267,12 @@ const Form = () => {
 														</FlexBetween>
 													)}
 												</Box>
+												
 											)}
 										</Dropzone>
+										{!values.picture && (
+											<p style={{color:'red'}}>حقل إجباري</p>
+										)}
 									</Box>
 								</>
 							)}
