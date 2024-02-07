@@ -11,6 +11,7 @@ import DialogContentText from '@mui/material/DialogContentText'
 import DialogTitle from '@mui/material/DialogTitle'
 import Snackbar from '@mui/material/Snackbar'
 import TextField from '@mui/material/TextField'
+import axios from 'axios'
 import { Formik } from "formik"
 import * as React from 'react'
 import { useDispatch, useSelector } from "react-redux"
@@ -27,10 +28,6 @@ const Alert = React.forwardRef(function Alert(props, ref) {
 const editPostSchema = yup.object().shape({
 	description: yup.string().required("حقل إجباري"),
 })
-
-let initialValuesEditPost = {
-	description: "",
-}
 
 const Friend = ({ friendId, name, subtitle, userPicturePath, postId }) => {
   const dispatch = useDispatch();
@@ -100,11 +97,22 @@ const Friend = ({ friendId, name, subtitle, userPicturePath, postId }) => {
     successAlertShow()
   }
 
+  const fetchPost = async () => {
+    const res = await axios.get(`http://localhost:3001/posts/${postId}`)
+    return res.data.description
+  }
+
   const [editDialogOpen, setEditDialogOpen] = React.useState(false);
 
+  const [initialPostDes, setInitialPostDes] = React.useState({ description: "" })
+  
   const handleEditDialogOpen = () => {
+    fetchPost().then(data => {
+      setInitialPostDes(old => {
+        old.description = data
+      })
+    })
     setEditDialogOpen(true);
-    fetchPost()
   };
 
   const handleEditDialogClose = () => {
@@ -148,21 +156,6 @@ const Friend = ({ friendId, name, subtitle, userPicturePath, postId }) => {
 
     setOpenDeleteSuccessed(false);
   };
-
-  const fetchPost = async () => {
-    await fetch(`https://hsoub-api.onrender.com/posts/${postId}`, {
-      method: 'GET',
-      headers: {
-        Authorization: `Bearer ${token}`,
-      }
-    })
-    .then(response => {
-      const post = response.json()
-      post.then(data => {
-        initialValuesEditPost.description = data.description
-      })
-    })
-  }
 
   return (
     <>
@@ -210,7 +203,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath, postId }) => {
             {/* EDIT DIALOG */}
             <Formik 
               onSubmit={editPostSubmit}
-              initialValues={initialValuesEditPost}
+              initialValues={initialPostDes}
               validationSchema={editPostSchema}
             >
               {({
