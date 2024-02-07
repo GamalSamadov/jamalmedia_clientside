@@ -28,7 +28,7 @@ const editPostSchema = yup.object().shape({
 	description: yup.string().required("حقل إجباري"),
 })
 
-const initialValuesEditPost = {
+let initialValuesEditPost = {
 	description: "",
 }
 
@@ -104,6 +104,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath, postId }) => {
 
   const handleEditDialogOpen = () => {
     setEditDialogOpen(true);
+    fetchPost()
   };
 
   const handleEditDialogClose = () => {
@@ -147,6 +148,21 @@ const Friend = ({ friendId, name, subtitle, userPicturePath, postId }) => {
 
     setOpenDeleteSuccessed(false);
   };
+
+  const fetchPost = async () => {
+    await fetch(`https://hsoub-api.onrender.com/posts/${postId}`, {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      }
+    })
+    .then(response => {
+      const post = response.json()
+      post.then(data => {
+        initialValuesEditPost.description = data.description
+      })
+    })
+  }
 
   return (
     <>
