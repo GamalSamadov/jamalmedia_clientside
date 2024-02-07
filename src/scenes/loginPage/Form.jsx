@@ -72,22 +72,34 @@ const Form = () => {
 		}
 		
 		formData.append("picturePath", values.picture.name);
-	
-		const savedUserResponse = await fetch(
-		  `https://hsoub-api.onrender.com/auth/register`,
-		  {
-			method: "POST",
-			body: formData,
-		  }
-		);
-		const savedUser = await savedUserResponse.json();
 		
-		if (savedUser) {
-			setPageType("login");
-			registerAlert()
-		}
+
+		await fetch(
+			`https://hsoub-api.onrender.com/auth/register`,
+			{
+				method: "POST",
+				body: formData,
+			}
+		)
+		.then((response) => {
+			console.log(response)
+			if (response.status === 409) {
+				registerUserExistAlert()
+				return
+			} 
+			if (response.status === 400) {
+				registerRequiredFieldsAlert()
+				return
+			}
+			if (response.ok) {
+				setPageType("login");
+				registerAlert()
+				return
+			}
+		})
 
 		onSubmitProps.resetForm();
+
 	};
 	
 	const login = (values, onSubmitProps) => {
@@ -139,6 +151,33 @@ const Form = () => {
 	  setOpenRegisterSuccessed(false);
 	};
 
+	const [openRegisterUserExist, setOpenRegisterUserExist] = React.useState(false);
+
+	const registerUserExistAlert = () => {
+		setOpenRegisterUserExist(true);
+	};
+  
+	const handleCloseRegisterUserExist = (event, reason) => {
+	  if (reason === 'clickaway') {
+		return;
+	  }
+  
+	  setOpenRegisterUserExist(false);
+	};
+
+	const [openRegisterRequiredFields, setOpenRegisterRequiredFields] = React.useState(false);
+
+	const registerRequiredFieldsAlert = () => {
+		setOpenRegisterRequiredFields(true);
+	};
+  
+	const handleCloseRegisterRequiredFields = (event, reason) => {
+	  if (reason === 'clickaway') {
+		return;
+	  }
+	  setOpenRegisterRequiredFields(false);
+	};
+
 	const [openLoginError, setOpenLoginError] = React.useState(false);
 
 	const loginAlert = () => {
@@ -153,7 +192,6 @@ const Form = () => {
 	  setOpenLoginError(false);
 	};
 
-	console.log(process.env.SERVERSIDE_URL)
 	return (
 		<>
 			<Formik 
@@ -363,6 +401,20 @@ const Form = () => {
 			<Snackbar open={openRegisterSuccessed} autoHideDuration={6000} onClose={handleCloseRegisterSuccessed}>
 			<Alert onClose={handleCloseRegisterSuccessed} severity="success" sx={{ width: '100%' }}>
 				تم إنشاء الحساب! يمكنك الدخول إليه الآن...
+			</Alert>
+			</Snackbar>
+
+			{/* REGISTER User exist */}
+			<Snackbar open={openRegisterUserExist} autoHideDuration={6000} onClose={handleCloseRegisterUserExist}>
+			<Alert onClose={handleCloseRegisterUserExist} severity="error" sx={{ width: '100%' }}>
+				يبدو أن البريد الإلكتروني مسجل من قبل  
+			</Alert>
+			</Snackbar>
+
+			{/* REGISTER Required fields */}
+			<Snackbar open={openRegisterRequiredFields} autoHideDuration={6000} onClose={handleCloseRegisterRequiredFields}>
+			<Alert onClose={handleCloseRegisterRequiredFields} severity="error" sx={{ width: '100%' }}>
+				رجاء أدخل جميع الحقول!
 			</Alert>
 			</Snackbar>
 
