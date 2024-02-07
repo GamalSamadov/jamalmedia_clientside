@@ -104,12 +104,13 @@ const Friend = ({ friendId, name, subtitle, userPicturePath, postId }) => {
 
   const [editDialogOpen, setEditDialogOpen] = React.useState(false);
 
-  const [initialPostDes, setInitialPostDes] = React.useState({ description: "" })
+  const [initialPostValues, setInitialPostValues] = React.useState({ description: "" })
   
   const handleEditDialogOpen = () => {
     fetchPost().then(data => {
-      setInitialPostDes(old => {
+      setInitialPostValues(old => {
         old.description = data
+        return old
       })
     })
     setEditDialogOpen(true);
@@ -203,7 +204,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath, postId }) => {
             {/* EDIT DIALOG */}
             <Formik 
               onSubmit={editPostSubmit}
-              initialValues={initialPostDes}
+              initialValues={initialPostValues}
               validationSchema={editPostSchema}
             >
               {({
