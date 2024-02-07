@@ -98,7 +98,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath, postId }) => {
   }
 
   const fetchPost = async () => {
-    const res = await axios.get(`http://localhost:3001/posts/${postId}`)
+    const res = await axios.get(`https://hsoub-api.onrender.com/posts/${postId}`)
     return res.data.description
   }
 
